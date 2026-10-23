@@ -13,3 +13,405 @@
 {"question": "How much does a private group class cost?", "expected_answer": "$180 for up to 12 adults", "source": "12_corporate_and_group_programs.pdf"}
 {"question": "Who won the 2024 gym championship?", "expected_answer": "Not specified in the documents", "source": null}
 {"question": "Is the gym open 24/7?", "expected_answer": "No", "source": "01_gym_overview.txt"}
+[
+  {
+    "question": "How do I perform a barbell back squat?",
+    "expected": "Setup: Set bar across upper back, brace torso, feet about shoulder-width. Movement: Bend hips and knees, descend as far as controlled with heels grounded. Return: Drive through whole foot to stand."
+  },
+  {
+    "question": "What muscles does the barbell back squat work?",
+    "expected": "Quadriceps, glutes"
+  },
+  {
+    "question": "How do I perform a goblet squat?",
+    "expected": "Setup: Hold weight close to chest, feet shoulder-width. Movement: Sit between hips, bending knees while keeping torso tall. Return: Push floor away to stand."
+  },
+  {
+    "question": "What muscles does the goblet squat work?",
+    "expected": "Quadriceps, glutes"
+  },
+  {
+    "question": "How do I perform a leg press?",
+    "expected": "Setup: Sit with back supported and feet hip-to-shoulder width on platform. Movement: Lower sled until comfortable knee bend without pelvis rolling. Return: Press through feet without locking knees aggressively."
+  },
+  {
+    "question": "What muscles does the leg press work?",
+    "expected": "Quadriceps, glutes"
+  },
+  {
+    "question": "How do I perform a romanian deadlift?",
+    "expected": "Setup: Stand tall with soft knees and weights close to thighs. Movement: Hinge hips backward, keeping weights near legs and spine neutral. Return: Squeeze glutes to return upright."
+  },
+  {
+    "question": "What muscles does the romanian deadlift work?",
+    "expected": "Hamstrings, glutes"
+  },
+  {
+    "question": "How do I perform a conventional deadlift?",
+    "expected": "Setup: Stand with midfoot under bar, hinge and grip, brace core. Movement: Push floor away and extend hips and knees together, bar close. Return: Hinge down and bend knees to lower under control."
+  },
+  {
+    "question": "What muscles does the conventional deadlift work?",
+    "expected": "Glutes, hamstrings, quadriceps"
+  },
+  {
+    "question": "How do I perform a walking lunge?",
+    "expected": "Setup: Stand upright with room to step. Movement: Step forward and lower until both knees comfortably bend. Return: Push through front foot and bring rear leg forward."
+  },
+  {
+    "question": "What muscles does the walking lunge work?",
+    "expected": "Quadriceps, glutes"
+  },
+  {
+    "question": "How do I perform a reverse lunge?",
+    "expected": "Setup: Stand tall with feet hip-width. Movement: Step one leg back, lower straight down with torso controlled. Return: Push through front foot to return."
+  },
+  {
+    "question": "What muscles does the reverse lunge work?",
+    "expected": "Quadriceps, glutes"
+  },
+  {
+    "question": "How do I perform a bulgarian split squat?",
+    "expected": "Setup: Place rear foot on low bench, front foot far enough forward. Movement: Lower hips vertically with weight centered on front leg. Return: Press through front foot to rise."
+  },
+  {
+    "question": "What muscles does the bulgarian split squat work?",
+    "expected": "Quadriceps, glutes"
+  },
+  {
+    "question": "How do I perform a seated leg extension?",
+    "expected": "Setup: Adjust pad above ankles and align knee with machine pivot. Movement: Extend knees through comfortable range. Return: Lower slowly without letting stack crash."
+  },
+  {
+    "question": "What muscles does the seated leg extension work?",
+    "expected": "Quadriceps"
+  },
+  {
+    "question": "How do I perform a seated leg curl?",
+    "expected": "Setup: Align knee with pivot, secure thigh and ankle pads. Movement: Bend knees to pull lower legs down/back. Return: Return slowly."
+  },
+  {
+    "question": "What muscles does the seated leg curl work?",
+    "expected": "Hamstrings"
+  },
+  {
+    "question": "How do I perform a standing calf raise?",
+    "expected": "Setup: Stand on balls of feet with stable support. Movement: Rise onto toes as high as controlled. Return: Lower heels slowly through comfortable range."
+  },
+  {
+    "question": "What muscles does the standing calf raise work?",
+    "expected": "Calves"
+  },
+  {
+    "question": "How do I perform a glute bridge?",
+    "expected": "Setup: Lie on back with knees bent, feet flat. Movement: Brace abdomen and lift hips by squeezing glutes. Return: Lower pelvis slowly."
+  },
+  {
+    "question": "What muscles does the glute bridge work?",
+    "expected": "Glutes"
+  },
+  {
+    "question": "How do I perform a hip thrust?",
+    "expected": "Setup: Upper back against stable bench, feet flat, weight padded if used. Movement: Drive through feet and lift hips until torso and thighs align. Return: Lower with control."
+  },
+  {
+    "question": "What muscles does the hip thrust work?",
+    "expected": "Glutes"
+  },
+  {
+    "question": "How do I perform a step-up?",
+    "expected": "Setup: Place entire foot on a low stable step. Movement: Push through lead leg to rise onto step. Return: Lower slowly without dropping."
+  },
+  {
+    "question": "What muscles does the step-up work?",
+    "expected": "Quadriceps, glutes"
+  },
+  {
+    "question": "How do I perform a hip abduction machine?",
+    "expected": "Setup: Sit with back supported, knees against pads. Movement: Move knees outward through comfortable range. Return: Return slowly."
+  },
+  {
+    "question": "What muscles does the hip abduction machine work?",
+    "expected": "Gluteus medius"
+  },
+  {
+    "question": "How do I perform a barbell bench press?",
+    "expected": "Setup: Lie on bench, feet planted, grip just wider than shoulders. Movement: Lower bar under control toward mid-to-lower chest. Return: Press upward while maintaining stable shoulders."
+  },
+  {
+    "question": "What muscles does the barbell bench press work?",
+    "expected": "Pectorals, triceps"
+  },
+  {
+    "question": "How do I perform a dumbbell bench press?",
+    "expected": "Setup: Lie on bench, dumbbells near chest, wrists stacked. Movement: Press weights upward and slightly inward. Return: Lower with elbows in comfortable arc."
+  },
+  {
+    "question": "What muscles does the dumbbell bench press work?",
+    "expected": "Pectorals, triceps"
+  },
+  {
+    "question": "How do I perform a incline dumbbell press?",
+    "expected": "Setup: Set bench at modest incline, feet planted. Movement: Press dumbbells above upper chest. Return: Lower slowly with controlled shoulders."
+  },
+  {
+    "question": "What muscles does the incline dumbbell press work?",
+    "expected": "Upper pectorals, triceps"
+  },
+  {
+    "question": "How do I perform a push-up?",
+    "expected": "Setup: Hands slightly wider than shoulders, body in straight line. Movement: Lower chest toward floor with elbows angled back. Return: Push away until arms straight."
+  },
+  {
+    "question": "What muscles does the push-up work?",
+    "expected": "Pectorals, triceps"
+  },
+  {
+    "question": "How do I perform a machine chest press?",
+    "expected": "Setup: Adjust seat so handles align around mid-chest. Movement: Press handles forward smoothly. Return: Return until comfortable chest stretch."
+  },
+  {
+    "question": "What muscles does the machine chest press work?",
+    "expected": "Pectorals, triceps"
+  },
+  {
+    "question": "How do I perform a cable chest fly?",
+    "expected": "Setup: Set handles near chest height, stagger feet, soft elbows. Movement: Bring hands together in front of chest in wide arc. Return: Open arms slowly without overstretching."
+  },
+  {
+    "question": "What muscles does the cable chest fly work?",
+    "expected": "Pectorals"
+  },
+  {
+    "question": "How do I perform a pec deck fly?",
+    "expected": "Setup: Adjust seat and arms for comfortable shoulder position. Movement: Bring pads/handles together in front of chest. Return: Return slowly."
+  },
+  {
+    "question": "What muscles does the pec deck fly work?",
+    "expected": "Pectorals"
+  },
+  {
+    "question": "How do I perform a lat pulldown?",
+    "expected": "Setup: Sit tall, secure thighs, grip bar wider than shoulders. Movement: Pull bar toward upper chest by driving elbows down. Return: Return arms overhead with control."
+  },
+  {
+    "question": "What muscles does the lat pulldown work?",
+    "expected": "Latissimus dorsi, biceps"
+  },
+  {
+    "question": "How do I perform a assisted pull-up?",
+    "expected": "Setup: Select enough assistance, hold handles, brace. Movement: Pull chest toward handles with elbows driving down. Return: Lower until arms comfortably extended."
+  },
+  {
+    "question": "What muscles does the assisted pull-up work?",
+    "expected": "Lats, biceps"
+  },
+  {
+    "question": "How do I perform a pull-up?",
+    "expected": "Setup: Hang from secure bar, brace core, shoulders active. Movement: Pull body up until chin near/over bar if comfortable. Return: Lower smoothly to hang."
+  },
+  {
+    "question": "What muscles does the pull-up work?",
+    "expected": "Lats, biceps"
+  },
+  {
+    "question": "How do I perform a seated cable row?",
+    "expected": "Setup: Sit tall, feet braced, shoulders relaxed. Movement: Pull handle toward lower ribs, elbows close to body. Return: Extend arms slowly without rounding excessively."
+  },
+  {
+    "question": "What muscles does the seated cable row work?",
+    "expected": "Mid-back, lats"
+  },
+  {
+    "question": "How do I perform a one-arm dumbbell row?",
+    "expected": "Setup: Support one hand and knee on bench, spine neutral. Movement: Pull dumbbell toward hip with elbow close. Return: Lower until arm extended."
+  },
+  {
+    "question": "What muscles does the one-arm dumbbell row work?",
+    "expected": "Lats, mid-back"
+  },
+  {
+    "question": "How do I perform a bent-over barbell row?",
+    "expected": "Setup: Hinge at hips with braced neutral trunk. Movement: Pull bar toward lower ribs. Return: Lower bar under control."
+  },
+  {
+    "question": "What muscles does the bent-over barbell row work?",
+    "expected": "Mid-back, lats"
+  },
+  {
+    "question": "How do I perform a chest-supported row?",
+    "expected": "Setup: Lie chest-down on incline bench with arms hanging. Movement: Pull elbows back toward hips. Return: Lower weights slowly."
+  },
+  {
+    "question": "What muscles does the chest-supported row work?",
+    "expected": "Mid-back, lats"
+  },
+  {
+    "question": "How do I perform a straight-arm pulldown?",
+    "expected": "Setup: Stand facing high pulley with arms nearly straight. Movement: Pull handle down toward thighs by moving shoulders. Return: Return slowly overhead."
+  },
+  {
+    "question": "What muscles does the straight-arm pulldown work?",
+    "expected": "Lats"
+  },
+  {
+    "question": "How do I perform a face pull?",
+    "expected": "Setup: Set rope at face height, stand stable. Movement: Pull rope toward forehead, separating hands. Return: Extend arms slowly."
+  },
+  {
+    "question": "What muscles does the face pull work?",
+    "expected": "Rear deltoids, upper back"
+  },
+  {
+    "question": "How do I perform a dumbbell shoulder press?",
+    "expected": "Setup: Sit or stand tall, dumbbells near shoulder height. Movement: Press upward in comfortable arc. Return: Lower to shoulder level with control."
+  },
+  {
+    "question": "What muscles does the dumbbell shoulder press work?",
+    "expected": "Deltoids, triceps"
+  },
+  {
+    "question": "How do I perform a machine shoulder press?",
+    "expected": "Setup: Adjust seat so handles begin near shoulders. Movement: Press handles upward without locking forcefully. Return: Return slowly."
+  },
+  {
+    "question": "What muscles does the machine shoulder press work?",
+    "expected": "Deltoids, triceps"
+  },
+  {
+    "question": "How do I perform a dumbbell lateral raise?",
+    "expected": "Setup: Stand tall, soft elbows, dumbbells at sides. Movement: Raise arms out to sides to about shoulder height. Return: Lower slowly."
+  },
+  {
+    "question": "What muscles does the dumbbell lateral raise work?",
+    "expected": "Lateral deltoids"
+  },
+  {
+    "question": "How do I perform a front raise?",
+    "expected": "Setup: Stand upright with light weights in front of thighs. Movement: Raise arms forward to about shoulder height. Return: Lower slowly."
+  },
+  {
+    "question": "What muscles does the front raise work?",
+    "expected": "Anterior deltoids"
+  },
+  {
+    "question": "How do I perform a reverse pec deck?",
+    "expected": "Setup: Sit facing machine with chest supported. Movement: Open arms outward/back with soft elbows. Return: Return slowly."
+  },
+  {
+    "question": "What muscles does the reverse pec deck work?",
+    "expected": "Rear deltoids"
+  },
+  {
+    "question": "How do I perform a cable external rotation?",
+    "expected": "Setup: Keep elbow near side bent 90 degrees. Movement: Rotate forearm outward without moving upper arm. Return: Return slowly."
+  },
+  {
+    "question": "What muscles does the cable external rotation work?",
+    "expected": "Rotator cuff"
+  },
+  {
+    "question": "How do I perform a barbell biceps curl?",
+    "expected": "Setup: Stand tall with elbows near sides. Movement: Bend elbows to lift bar toward chest. Return: Lower slowly."
+  },
+  {
+    "question": "What muscles does the barbell biceps curl work?",
+    "expected": "Biceps"
+  },
+  {
+    "question": "How do I perform a alternating dumbbell curl?",
+    "expected": "Setup: Stand tall holding dumbbells at sides. Movement: Curl one dumbbell, turning palm up comfortably. Return: Lower then switch sides."
+  },
+  {
+    "question": "What muscles does the alternating dumbbell curl work?",
+    "expected": "Biceps"
+  },
+  {
+    "question": "How do I perform a hammer curl?",
+    "expected": "Setup: Hold dumbbells with palms facing inward. Movement: Curl while keeping neutral grip. Return: Lower slowly."
+  },
+  {
+    "question": "What muscles does the hammer curl work?",
+    "expected": "Brachialis, brachioradialis"
+  },
+  {
+    "question": "How do I perform a preacher curl?",
+    "expected": "Setup: Support upper arms on angled pad. Movement: Curl weight without lifting arms off pad. Return: Lower carefully, avoiding forced elbow lock."
+  },
+  {
+    "question": "What muscles does the preacher curl work?",
+    "expected": "Biceps"
+  },
+  {
+    "question": "How do I perform a cable triceps pushdown?",
+    "expected": "Setup: Stand tall, elbows tucked beside torso. Movement: Extend elbows to push handle down. Return: Return until forearms rise comfortably."
+  },
+  {
+    "question": "What muscles does the cable triceps pushdown work?",
+    "expected": "Triceps"
+  },
+  {
+    "question": "How do I perform a overhead triceps extension?",
+    "expected": "Setup: Hold weight overhead, elbows pointing forward. Movement: Bend elbows to lower weight behind head. Return: Extend elbows without arching back."
+  },
+  {
+    "question": "What muscles does the overhead triceps extension work?",
+    "expected": "Triceps"
+  },
+  {
+    "question": "How do I perform a close-grip push-up?",
+    "expected": "Setup: Place hands moderately narrow, keep body aligned. Movement: Lower chest with elbows near sides. Return: Press back to start."
+  },
+  {
+    "question": "What muscles does the close-grip push-up work?",
+    "expected": "Triceps, chest"
+  },
+  {
+    "question": "How do I perform a plank?",
+    "expected": "Setup: Place forearms under shoulders, toes on floor. Movement: Brace abdomen and maintain straight body line. Return: Hold with steady breathing, then rest."
+  },
+  {
+    "question": "What muscles does the plank work?",
+    "expected": "Abdominals, trunk stabilizers"
+  },
+  {
+    "question": "How do I perform a side plank?",
+    "expected": "Setup: Lie on side, elbow under shoulder, knees or feet stacked. Movement: Lift hips until body forms straight line. Return: Hold and lower with control."
+  },
+  {
+    "question": "What muscles does the side plank work?",
+    "expected": "Obliques, lateral trunk"
+  },
+  {
+    "question": "How do I perform a dead bug?",
+    "expected": "Setup: Lie on back, hips and knees at 90 degrees, arms up. Movement: Extend opposite arm and leg while keeping trunk stable. Return: Return and alternate sides."
+  },
+  {
+    "question": "What muscles does the dead bug work?",
+    "expected": "Deep abdominals"
+  },
+  {
+    "question": "How do I perform a bird dog?",
+    "expected": "Setup: Start on hands and knees with neutral spine. Movement: Reach opposite arm and leg long without rotating hips. Return: Return and switch sides."
+  },
+  {
+    "question": "What muscles does the bird dog work?",
+    "expected": "Spinal stabilizers, glutes"
+  },
+  {
+    "question": "How do I perform a cable pallof press?",
+    "expected": "Setup: Stand side-on to anchor, hold handle at chest. Movement: Press hands forward while resisting rotation. Return: Bring hands back slowly."
+  },
+  {
+    "question": "What muscles does the cable pallof press work?",
+    "expected": "Obliques, anti-rotation core"
+  },
+  {
+    "question": "How do I perform a hanging knee raise?",
+    "expected": "Setup: Hang or support forearms, keep shoulders active. Movement: Raise bent knees toward torso without swinging. Return: Lower slowly."
+  },
+  {
+    "question": "What muscles does the hanging knee raise work?",
+    "expected": "Abdominals, hip flexors"
+  }
+]

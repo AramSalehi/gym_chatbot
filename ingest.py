@@ -43,17 +43,28 @@ def load_documents():
     is what citations display later.
     """
     docs = []
-    for name in sorted(os.listdir(DATA_DIR)):
-        path = os.path.join(DATA_DIR, name)
-        lower = name.lower()
-        if lower.endswith(".pdf"):
-            text = "\n".join(page.extract_text() or "" for page in PdfReader(path).pages)
-            docs.append(Document(page_content=text, metadata={"source": name}))
-        elif lower.endswith((".md", ".txt")):
-            with open(path, encoding="utf-8") as f:
-                docs.append(Document(page_content=f.read(), metadata={"source": name}))
-        else:
-            print(f"  skipping {name} (not a .pdf, .md, or .txt file)")
+    for root, dirs, names in os.walk(DATA_DIR):
+        dirs.sort()
+        for name in sorted(names):
+            path = os.path.join(root, name)
+            relative_path = os.path.relpath(path, DATA_DIR)
+            lower = name.lower()
+            if lower.endswith(".pdf"):
+                text = "\n".join(
+                    page.extract_text() or "" for page in PdfReader(path).pages
+                )
+            elif lower.endswith((".md", ".txt")):
+                with open(path, encoding="utf-8") as f:
+                    text = f.read()
+            else:
+                print(f"  skipping {relative_path} (not a .pdf, .md, or .txt file)")
+                continue
+            docs.append(
+                Document(
+                    page_content=text,
+                    metadata={"source": relative_path.replace("\\", "/")},
+                )
+            )
     return docs
 
 
@@ -81,9 +92,9 @@ def build_database(force: bool = False):
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
     chunks = splitter.split_documents(docs)
 
-    # Keep just the file name as the source — this is what citations display
+    # Keep each path relative to data/ so nested files remain identifiable.
     for chunk in chunks:
-        chunk.metadata["source"] = os.path.basename(chunk.metadata.get("source", "unknown"))
+        chunk.metadata["source"] = chunk.metadata.get("source", "unknown").replace("\\", "/")
 
     print(f"  {len(docs)} document(s) → {len(chunks)} chunks")
 

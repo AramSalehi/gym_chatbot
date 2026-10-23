@@ -71,17 +71,22 @@ logging.getLogger("gym-bot").setLevel(logging.WARNING)
 
 def main():
     with open("test_questions.json", encoding="utf-8") as questions_file:
-        raw_questions = questions_file.read().strip()
-    if raw_questions.startswith("["):
-        questions = json.loads(raw_questions)
-    else:
-        questions = [
-            json.loads(line)
-            for line in raw_questions.splitlines()
-            if line.strip()
-        ]
-    if not isinstance(questions, list):
-        raise ValueError("test_questions.json must contain a JSON array or one JSON object per line.")
+        raw_questions = questions_file.read()
+    decoder = json.JSONDecoder()
+    questions = []
+    position = 0
+    while position < len(raw_questions):
+        while position < len(raw_questions) and raw_questions[position].isspace():
+            position += 1
+        if position == len(raw_questions):
+            break
+        value, position = decoder.raw_decode(raw_questions, position)
+        if isinstance(value, list):
+            questions.extend(value)
+        elif isinstance(value, dict):
+            questions.append(value)
+        else:
+            raise ValueError("Each evaluation entry must be a JSON object or array of objects.")
 
     agent = build_agent()
     n_faithful = n_complete = 0
@@ -90,7 +95,9 @@ def main():
         q = item["question"]
         response = safe_answer(agent.invoke({"messages": [{"role": "user", "content": q}]}))
         f_ok = faithful(q, response.answer, response.citations)
-        expected = item["expected_answer"]
+        expected = item.get("expected_answer", item.get("expected"))
+        if not isinstance(expected, str):
+            raise ValueError(f"Question {i} is missing a string expected answer: {q}")
         c_ok = complete(q, response.answer, expected)
         n_faithful += f_ok
         n_complete += c_ok

@@ -47,8 +47,8 @@ the app will run.
 
 ## Updating the knowledge base
 
-Add or replace `.pdf`, `.md`, and `.txt` files in `data/`, then rebuild the
-index:
+Add or replace `.pdf`, `.md`, and `.txt` files anywhere under `data/`
+(including subfolders such as `data/exercises/`), then rebuild the index:
 
 ```powershell
 python .\ingest.py
