@@ -1,18 +1,15 @@
-"""
-ingest.py — turn the files in data/ into a searchable database.
+"""Turn the files in data/ into a searchable database.
 
 Run it:    python ingest.py
 
-This is also the ONLY thing you re-run to make the chatbot answer about
-YOUR documents (Chapter 5): drop your PDF, .md, or .txt files into data/,
-run this script, restart the app. No other code changes.
+Run this again after adding or changing PDF, Markdown, or text files in data/.
 """
 
 import sys
 
 if sys.version_info < (3, 10):
     sys.exit(
-        "\nThis course needs Python 3.10 or newer — you're on "
+        "\nThis project needs Python 3.10 or newer — you're on "
         f"{sys.version.split()[0]}.\n"
         "Create a 3.10+ virtual environment first; see SETUP.md in the project root.\n"
     )

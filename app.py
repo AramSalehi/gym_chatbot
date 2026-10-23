@@ -1,19 +1,13 @@
-"""
-app.py — your chatbot's web page (Chapter 5: polished for shipping).
+"""Streamlit chat interface for Ironharbor Fitness.
 
 Run it locally:    python -m streamlit run app.py
-Deploy it:         push to GitHub, then share.streamlit.io (see README)
-
-Same brain as Chapter 3 (imported from chatbot.py) — this file just adds
-a little shipping polish: a sidebar with an "about" note and a Clear-chat
-button. The brain lives in chatbot.py.
 """
 
 import sys
 
 if sys.version_info < (3, 10):
     sys.exit(
-        "\nThis course needs Python 3.10 or newer — you're on "
+        "\nThis project needs Python 3.10 or newer — you're on "
         f"{sys.version.split()[0]}.\n"
         "Create a 3.10+ virtual environment first; see SETUP.md in the project root.\n"
     )
@@ -23,7 +17,7 @@ import os
 import streamlit as st
 
 # ---------------------------------------------------------------------------
-# Chapter 1 — Page setup and API key
+# Page setup and API key
 # ---------------------------------------------------------------------------
 
 st.set_page_config(page_title="Ironharbor Fitness Assistant", page_icon="💪")
@@ -44,9 +38,7 @@ if not os.environ.get("OPENAI_API_KEY"):
     st.stop()
 
 # ---------------------------------------------------------------------------
-# Chapter 2 — Make sure the document database exists
-# (This also makes deployment one-click: the cloud server builds the
-#  database from data/ automatically the first time the app starts.)
+# Ensure the document database exists
 # ---------------------------------------------------------------------------
 
 from ingest import DB_DIR  # the real database location (/tmp/... on Cloud)
@@ -71,7 +63,7 @@ def get_agent():
 agent = get_agent()
 
 # ---------------------------------------------------------------------------
-# Chapter 5 — Shipping polish: sidebar with branding + a clear-chat button
+# Sidebar with gym information and a clear-chat button
 # ---------------------------------------------------------------------------
 
 with st.sidebar:
@@ -85,7 +77,7 @@ with st.sidebar:
         st.rerun()
 
 # ---------------------------------------------------------------------------
-# Chapters 1, 3, 5 — The chat interface
+# Chat interface
 # ---------------------------------------------------------------------------
 
 st.title("💪 Ironharbor Fitness Assistant")
@@ -99,7 +91,7 @@ if "history" not in st.session_state:
 
 
 def show_citations(citations: list[dict]):
-    """Chapter 3 — render each citation as a clickable, expandable source.
+    """Render each citation as a clickable, expandable source.
     De-duplicates so the same passage never shows up twice."""
     seen = set()
     for c in citations:

@@ -1,121 +1,75 @@
-# SETUP — get a clean, working environment (do this once)
+# Environment setup
 
-Most "the code doesn't work for me" problems are environment problems, not code
-problems: the wrong Python version, or a second Python (often Anaconda) hijacking
-your commands. This page is the one golden path that avoids both. Follow it top to
-bottom — and don't skip the **verification gate** in the middle.
+This project requires Python 3.10 or newer and an OpenAI API key. Create an
+account and API key at https://platform.openai.com/api-keys.
 
-You need two things: **Python 3.10 or newer**, and an **OpenAI API key**. Create
-one at https://platform.openai.com/api-keys.
+## Windows PowerShell
 
----
+From the project directory, create and activate a virtual environment:
 
-## ⚠️ If you use Anaconda — read this first
-
-If your terminal prompt shows `(base)`, Anaconda is active and will quietly take
-over the `python`, `pip`, and `streamlit` commands even after you make a virtual
-environment. That's the single most common way this setup goes sideways. Turn it
-off before you start:
-
-```bash
-conda deactivate
-conda config --set auto_activate_base false
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
 ```
 
-Open a new terminal and confirm `(base)` is gone before continuing. (No Anaconda?
-Skip this — nothing to do.)
+If PowerShell blocks activation, use the following command for the current
+terminal session, then activate the environment:
 
----
-
-## 1. Check your Python version
-
-```bash
-python3 --version
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
 ```
 
-If that says **3.10 or higher**, you're set — use `python3` below. If it's older
-(macOS often ships 3.9), install a newer one from https://www.python.org/downloads
-(3.11 is a safe choice) and use the full path to it in the next step, e.g.
-`/Library/Frameworks/Python.framework/Versions/3.11/bin/python3`.
+Confirm Python is coming from `.venv`, then install dependencies and configure
+the API key:
 
-## 2. Create and activate a virtual environment
-
-A virtual environment is a private box of packages for this project, so it can't
-fight with anything else on your machine.
-
-```bash
-python3 -m venv .venv                 # use your 3.10+ python here
-source .venv/bin/activate             # Windows PowerShell: .venv\Scripts\Activate.ps1
-```
-
-Your prompt should now start with `(.venv)`.
-
-## 3. ✅ THE VERIFICATION GATE — do not skip
-
-Before installing anything, confirm the environment is really the one that's
-active. Run all three:
-
-```bash
-which python
+```powershell
 python --version
-python -c "import sys; print(sys.prefix)"
-```
-
-All three must be true:
-- `which python` points **inside your project's `.venv`** (not `/opt/anaconda3`, not `/usr/bin`)
-- `python --version` is **3.10 or newer**
-- `sys.prefix` ends in **`.venv`**
-
-If any of those is wrong, stop and fix it now — installing on top of a wrong
-environment is what causes the confusing errors later. Most often the fix is the
-Anaconda step above, then rebuild: `deactivate`, `rm -rf .venv`, and redo step 2
-with an explicit 3.10+ python path.
-
-## 4. Install the dependencies
-
-```bash
+python -c "import sys; print(sys.executable)"
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+$env:OPENAI_API_KEY="your-api-key"
 ```
 
-Always write `python -m pip` (not bare `pip`) — it guarantees you're installing
-into the environment that's active, so PATH confusion can't bite you.
+Build the vector database and start the app:
 
-A clean install ends with a list of installed packages and **no** lines saying
-"already satisfied … /opt/anaconda3" and **no** uninstalls. If you see those, the
-packages went to the wrong place — go back to step 3.
-
-## 5. Run it
-
-```bash
-# Chapter 2 onward only — build the document database first:
+```powershell
+python .\ingest.py
 python -m streamlit run app.py
 ```
 
-(In Chapter 1 there are no documents, so just the `streamlit` line. From Chapter 2
-on, run `python ingest.py` once before `python -m streamlit run app.py`.)
+Run `python .\ingest.py` again whenever you add or update documents in `data/`.
 
-Use `python -m streamlit run` rather than bare `streamlit run`, for the same reason
-as `python -m pip`: it runs the streamlit that belongs to your active environment.
+## macOS and Linux
 
----
+Create and activate a virtual environment, install dependencies, and set your
+API key:
 
-## Quick fixes for the usual suspects
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+export OPENAI_API_KEY="your-api-key"
+```
 
-- **`ModuleNotFoundError: No module named 'streamlit.cli'`** — a stale, system-wide
-  Streamlit is running instead of yours. You're not in your `.venv` (step 3), or
-  you typed bare `streamlit` instead of `python -m streamlit`.
-- **`No module named streamlit` (or langchain)** — the install didn't land in this
-  environment, or a previous install failed partway. Re-check step 3, then redo
-  step 4.
-- **pip prints "Ignored the following versions … Requires-Python >=3.10"** — your
-  Python is too old (3.9 or below). Redo step 1 with a 3.10+ interpreter.
-- **`No API key found`** — set the key in the *same terminal* you run from:
-  `export OPENAI_API_KEY="your-api-key"` (Windows PowerShell:
-  `$env:OPENAI_API_KEY="your-api-key"`).
-- **Anaconda warnings about other packages after installing** — you installed into
-  `(base)` by mistake. Do the Anaconda step, rebuild the venv (step 2), reinstall.
+Then build the database and launch Streamlit:
 
-A `.python-version` file (`3.11`) ships in each folder; if you use **pyenv**, it
-will select 3.11 automatically (install it once with `pyenv install 3.11`). If you
-don't use pyenv, the file is harmless and ignored.
+```bash
+python ingest.py
+python -m streamlit run app.py
+```
+
+## Troubleshooting
+
+- **`No API key found`**: Set `OPENAI_API_KEY` in the same terminal or host
+  environment that runs the app.
+- **`No module named ...`**: Activate `.venv` and run
+  `python -m pip install -r requirements.txt`.
+- **Python version is too old**: Install Python 3.10 or newer and recreate the
+  virtual environment with that interpreter.
+- **Database write or locking errors**: Stop other running app/ingestion
+  processes and ensure the Chroma directory is writable. Set `CHROMA_DB_DIR` to
+  a writable directory if needed.
+- **Answers are stale after changing documents**: Re-run the ingestion command
+  and restart the app.

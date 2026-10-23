@@ -1,5 +1,4 @@
-"""
-trace.py — see inside a single agent run (Chapter 4.1: observability).
+"""Inspect the retrieval and response steps for a single question.
 
 Run it:    python trace.py "Can I bring my dog inside?"
 
@@ -20,7 +19,7 @@ import sys
 
 if sys.version_info < (3, 10):
     sys.exit(
-        "\nThis course needs Python 3.10 or newer — you're on "
+        "\nThis project needs Python 3.10 or newer — you're on "
         f"{sys.version.split()[0]}.\n"
         "Create a 3.10+ virtual environment first; see SETUP.md in the project root.\n"
     )
@@ -76,5 +75,5 @@ def trace(question: str):
 
 
 if __name__ == "__main__":
-    question = " ".join(sys.argv[1:]) or "Can I bring my dog inside the cafe?"
+    question = " ".join(sys.argv[1:]) or "Where is the gym located?"
     trace(question)

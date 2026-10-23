@@ -1,19 +1,10 @@
-"""
-chatbot.py — the brain of your chatbot.
-
-This file is built across Chapters 2 and 3 of the course:
-  Chapter 2: the retrieval tool and the agent (search + answer)
-  Chapter 3: structured citations and middleware
-
-The UI (app.py) and the grader (evaluate.py) both import from here,
-so the "brain" lives in exactly one place.
-"""
+"""Agent, retrieval, and citation logic for Ironharbor Fitness."""
 
 import sys
 
 if sys.version_info < (3, 10):
     sys.exit(
-        "\nThis course needs Python 3.10 or newer — you're on "
+        "\nThis project needs Python 3.10 or newer — you're on "
         f"{sys.version.split()[0]}.\n"
         "Create a 3.10+ virtual environment first; see SETUP.md in the project root.\n"
     )
@@ -30,7 +21,7 @@ from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 
 # ---------------------------------------------------------------------------
-# Chapter 3 — Logging
+# Logging
 # A small, friendly logger so YOU can watch what the bot is doing in your
 # terminal: when it searches, what it finds, and when it calls the model.
 # (Run the app, ask a question, and watch these lines appear.)
@@ -58,7 +49,7 @@ RELEVANCE_THRESHOLD = 0.10   # keep only matches at least this relevant (0-1)
 
 
 # ---------------------------------------------------------------------------
-# Chapter 3 — Citations
+# Citations
 # A "contract" the model must follow: every answer ships with its evidence.
 # ---------------------------------------------------------------------------
 
@@ -77,7 +68,7 @@ class AnswerWithCitations(BaseModel):
 
 
 # ---------------------------------------------------------------------------
-# Chapter 2 — The retrieval tool
+# Document retrieval
 # This is how the agent "looks things up" in your documents.
 # ---------------------------------------------------------------------------
 
@@ -107,10 +98,7 @@ def search_documents(query: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Chapter 3 — Middleware
-# A small function that runs every time the agent is about to call the model.
-# This one just logs — but the same hook is where memory, guardrails,
-# and PII filters plug in later (see Chapter 5's "next steps").
+# Middleware
 # ---------------------------------------------------------------------------
 
 @before_model
@@ -122,7 +110,7 @@ def log_model_call(state, runtime):
 
 
 # ---------------------------------------------------------------------------
-# Chapter 2 — The agent
+# Agent
 # ---------------------------------------------------------------------------
 
 SYSTEM_PROMPT = """\
@@ -165,23 +153,15 @@ def build_agent():
         tools=[search_documents],
         system_prompt=SYSTEM_PROMPT,
         response_format=AnswerWithCitations,
-        # --- Extension seams (Chapter 5.4) ---------------------------------
-        # The middleware list is THE place to add behavior without touching the
-        # agent. Today it's just the logger. You grow the bot by writing a
-        # @before_model (or @after_model) function and dropping it in here:
+        # Add additional before_model or after_model middleware here as needed:
         #
-        #   log_model_call,   # ← observability (built in this course)
-        #   # memory-here     → conversation memory / summarization
-        #   # pii-here        → redact personal info before it reaches the model
-        #   # guardrails-here → input/output safety checks (content filters)
-        #
-        # Same list, more entries — that's the whole extension story.
+        #   log_model_call,
         middleware=[log_model_call],
     )
 
 
 # ---------------------------------------------------------------------------
-# Safe accessor — use this everywhere instead of result["structured_response"]
+# Safe accessor for the agent's structured response
 #
 # Once in a while the model finishes a turn without emitting the structured
 # object through the proper channel. Reading result["structured_response"]
@@ -212,8 +192,8 @@ def safe_answer(result) -> AnswerWithCitations:
         return structured
 
     # Fallback: the model finished without a populated structured_response.
-    # With response_format set, its raw text is often the JSON object itself
-    # (e.g. on an honest decline), so try to parse that into the schema first.
+    # With response_format set, raw text may contain the JSON object, so try to
+    # parse it into the response schema first.
     messages = result.get("messages", [])
     text = message_text(messages[-1]) if messages else ""
 

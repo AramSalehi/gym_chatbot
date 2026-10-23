@@ -2,7 +2,7 @@ import sys
 
 if sys.version_info < (3, 10):
     sys.exit(
-        "\nThis course needs Python 3.10 or newer — you're on "
+        "\nThis project needs Python 3.10 or newer — you're on "
         f"{sys.version.split()[0]}.\n"
         "Create a 3.10+ virtual environment first; see SETUP.md in the project root.\n"
     )
