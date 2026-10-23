@@ -1,0 +1,15 @@
+{"question": "What time does the gym close on Sundays?", "expected_answer": "18:00", "source": "01_gym_overview.txt"}
+{"question": "Does Basic include group classes?", "expected_answer": "No, standard classes cost $12 each", "source": "02_memberships_and_pricing.md"}
+{"question": "How much is Premium?", "expected_answer": "$89 per month", "source": "02_memberships_and_pricing.md"}
+{"question": "When is beginner strength class?", "expected_answer": "Monday and Wednesday at 07:00", "source": "03_class_schedule.md"}
+{"question": "Does the gym have a sauna?", "expected_answer": "No", "source": "04_equipment_and_facilities.txt"}
+{"question": "How much notice is needed to cancel membership?", "expected_answer": "14 calendar days before the next billing date", "source": "05_membership_policies.md"}
+{"question": "How much does a five-session personal training pack cost?", "expected_answer": "$250", "source": "06_personal_training.md"}
+{"question": "Where is the AED?", "expected_answer": "At reception", "source": "07_safety_and_etiquette.txt"}
+{"question": "Can a 16-year-old join?", "expected_answer": "No, 18+ only", "source": "08_faq.md"}
+{"question": "What is the billing support email?", "expected_answer": "billing@ironharbor.example", "source": "09_contact_and_support.txt"}
+{"question": "Is the whey shake dairy-free?", "expected_answer": "No, it contains milk", "source": "10_nutrition_bar_menu.md"}
+{"question": "What should I bring on my first visit?", "expected_answer": "Photo ID, athletic shoes, water bottle, padlock for locker", "source": "11_new_member_guide.pdf"}
+{"question": "How much does a private group class cost?", "expected_answer": "$180 for up to 12 adults", "source": "12_corporate_and_group_programs.pdf"}
+{"question": "Who won the 2024 gym championship?", "expected_answer": "Not specified in the documents", "source": null}
+{"question": "Is the gym open 24/7?", "expected_answer": "No", "source": "01_gym_overview.txt"}

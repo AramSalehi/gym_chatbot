@@ -1,0 +1,6 @@
+IRONHARBOR FITNESS - GYM OVERVIEW (FICTIONAL TRAINING DATA)
+Location: 42 Harbor Lane, Riverton, fictional city. Phone: +1 (555) 014-2200. Email: hello@ironharbor.example. Website: ironharbor.example (not real).
+Mission: Welcoming strength and conditioning gym for adults of all experience levels.
+Facilities: free weights, squat racks, cardio floor, functional turf, two studios, locker rooms, showers, water refill stations.
+Reception hours: Monday-Friday 06:00-22:00; Saturday 08:00-20:00; Sunday 09:00-18:00. Gym access follows reception hours; no 24-hour entry.
+Holiday hours may differ and are announced at reception. There is no swimming pool or sauna.
